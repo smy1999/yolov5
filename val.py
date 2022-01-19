@@ -3,7 +3,7 @@
 Validate a trained YOLOv5 model accuracy on a custom dataset
 
 Usage:
-    $ python path/to/val.py --weights yolov5s.pt --data coco128.yaml --img 640
+    $ python path/to/val.py --weights yolov5s.pt --data mineral.yaml --img 640
 
 Usage - formats:
     $ python path/to/val.py --weights yolov5s.pt                 # PyTorch
@@ -155,7 +155,7 @@ def run(data,
 
     # Configure
     model.eval()
-    is_coco = isinstance(data.get('val'), str) and data['val'].endswith('coco/val2017.txt')  # COCO dataset
+    is_coco = isinstance(data.get('val'), str) and data['val'].endswith('coco/val.txt')  # COCO dataset
     nc = 1 if single_cls else int(data['nc'])  # number of classes
     iouv = torch.linspace(0.5, 0.95, 10).to(device)  # iou vector for mAP@0.5:0.95
     niou = iouv.numel()
@@ -317,7 +317,7 @@ def run(data,
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--data', type=str, default=ROOT / 'data/coco128.yaml', help='dataset.yaml path')
+    parser.add_argument('--data', type=str, default=ROOT / 'data/mineral.yaml', help='dataset.yaml path')
     parser.add_argument('--weights', nargs='+', type=str, default=ROOT / 'yolov5s.pt', help='model.pt path(s)')
     parser.add_argument('--batch-size', type=int, default=32, help='batch size')
     parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=640, help='inference size (pixels)')

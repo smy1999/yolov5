@@ -1,0 +1,9 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# Example usage: python train.py --data mineral.yaml
+path: datasets/  # dataset root dir
+train: images/train/  # train images (relative to 'path') 128 images
+val: images/val/  # val images (relative to 'path') 128 images
+
+# Classes
+nc: 1  # number of classes
+names: ['ore']  # class names
